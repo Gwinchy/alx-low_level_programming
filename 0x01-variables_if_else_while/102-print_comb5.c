@@ -6,17 +6,17 @@
  */
 int main(void)
 {
-	int a1, b1;
+	int a, b;
 
-	for (a1 = 0; a1 <= 98; a1++)
+	for (a = 0; a <= 98; a++)
 	{
-		for (b1 = a1 + 1; b1 <= 99; b1++)
+		for (b = a + 1; b <= 99; b++)
 		{
-			if (b1 > a1)
+			if (b > a)
 			{
-				putchar(a1);
-				putchar(b1);
-				if (a1 != 98 && b1 != 99)
+				putchar(a);
+				putchar(b);
+				if (a != 98 && b != 99)
 				{
 					putchar(',');
 					putchar(' ');
