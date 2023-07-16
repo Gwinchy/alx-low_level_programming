@@ -8,12 +8,14 @@ int main(void)
 {
 	int x;
 
-	for (x = '0'; x <= '8'; x++)
+	for (x = '0'; x <= '9'; x++)
 	{
 		putchar(x);
+		if (x <= '8')
+		{
 		putchar(',');
+		}
 		putchar(' ');
 	}
-	putchar('9');
 	return (0);
 }
