@@ -14,9 +14,8 @@ int main(void)
 		if (x <= '8')
 		{
 		putchar(',');
-		}
 		putchar(' ');
+		}
 	}
-	putchar('\n');
 	return (0);
 }
