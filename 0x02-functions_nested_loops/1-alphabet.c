@@ -1,4 +1,6 @@
 # include <stdio.h>
+// Function prototype
+void print_alphabet(void);
 /**
  * print_alphabet - Prints the lowercase alphabet from 'a' to 'z'
  *
