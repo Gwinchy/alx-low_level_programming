@@ -1,29 +1,16 @@
-# include <stdio.h>
-// Function prototype
-void print_alphabet(void);
+# include "main.h"
+#include <stdio.h>
 /**
- * print_alphabet - Prints the lowercase alphabet from 'a' to 'z'
+ * print_alphabet - Prints alphabets in lowercase
  *
- * Return: void
  */
 void print_alphabet(void)
 {
-	char letter = 'a';
+	char a;
 
-	while (letter <= 'z')
+	for (a = 'a'; a <= 'z'; a++)
 	{
-		putchar(letter);
-		letter++;
+		putchar(a);
 	}
 	putchar('\n');
-}
-/**
- * main - Starting point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-		print_alphabet();
-		return (0);
 }
