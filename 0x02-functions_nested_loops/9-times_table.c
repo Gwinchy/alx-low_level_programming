@@ -26,9 +26,10 @@ void times_table(void)
 
 				if (c < 10)
 					putchar(' ');
+					putchar(c + '0');
 				else
-					putchar((c / 10) + 0);
-				putchar((c % 10) + '0');
+					putchar((c / 10) + '0');
+					putchar((c % 10) + '0');
 			}
 		}
 		putchar('\n');
