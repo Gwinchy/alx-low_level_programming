@@ -1,26 +1,26 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * print_rev- prints the reverse of string s
- * @s: string to be printed in reverse
- * Return: void
- */
+* print_rev - function to print a string in reverse
+*
+* @s: Spring parameter
+*
+* Return: always 0 (success)
+*/
 void print_rev(char *s)
 {
-	if (s == NULL)
-		return;
-	int length = 0;
-	char *current = s;
-
-	while (*current != '\0')
-	{
-		length++;
-		current++;
-	}
-	for (int i = length - 1; i >= 0; i--)
-	{
-		putchar(s[i]);
-	}
-
-	putchar('\n');
+int temp = 0;
+int i;
+while (*s != '\0')
+{
+temp++;
+s++;
+}
+s--;
+for (i = temp; i > 0; i--)
+{
+_putchar(*s);
+s--;
+}
+_putchar('\n');
 }
