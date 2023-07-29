@@ -12,8 +12,7 @@ int main(void)
         printf("Infinite loop incoming :(\n");
 
         i = 0;
-/**
- * this is what causes the output to go into an infinite loop
+/*
         while (i < 10)
         {
                 putchar(i);
