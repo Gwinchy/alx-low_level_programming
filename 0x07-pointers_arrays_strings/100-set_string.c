@@ -1,27 +1,12 @@
 #include "main.h"
-#include <stdio.h>
 /**
-* print_diagsums - prints the sum of the two diagonals of a square matrix
-*
-* @a: pointer to 2D array.
-* @size: which diagonal to add.
-*
-* Return: always 0 (Success)
-*/
-
-void print_diagsums(int *a, int size)
+ * set_string - sets value of a pointer to a char
+ * @s: double pointer to set
+ * @to: the char to point to
+ *
+ * Return: void
+ */
+void set_string(char **s, char *to)
 {
-int i, S1, S2;
-
-S1 = 0;
-S2 = 0;
-
-for (i = 0; i < (size * size); i++)
-{
-if (i % (size + 1) == 0)
-S1 += a[i];
-if (i % (size - 1) == 0 && i != 0 && i < size * size - 1)
-S2 += a[i];
-}
-printf("%d, %d\n", S1, S2);
+	*s = to;
 }
