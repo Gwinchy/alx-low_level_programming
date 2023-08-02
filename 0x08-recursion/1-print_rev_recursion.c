@@ -10,6 +10,6 @@ void _print_rev_recursion(char *s)
 	{
 		putchar('\n');
 	}
-	putchar(*s)
+	putchar(*s);
 	_print_rev_recursion(s - 1);
 }
