@@ -2,14 +2,15 @@
 #include <stdio.h>
 /**
  * _print_rev_recursion - prints string in reverse
- * @s: string to be printed in reverse
+ * @s: string to be pri nted in reverse
+ * Return: Always 0 (Success)
  */
 void _print_rev_recursion(char *s)
 {
 	if (*s == '\0')
 	{
-		putchar('\n');
+		return;
 	}
 	putchar(*s);
-	_print_rev_recursion(s - 1);
+	_print_rev_recursion(s + 1);
 }
