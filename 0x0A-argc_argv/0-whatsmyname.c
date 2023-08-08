@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	if (argc > 1)
 	{
-		_putchar(argv[1][0];);
+		putchar(argv[1][0]);
 	}
 	return (0);
 }
