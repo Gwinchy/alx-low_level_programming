@@ -1,6 +1,4 @@
-#include <stdlib.h>
 #include <stdio.h>
-#define __FILE__
 /**
  * main - starting point
  * @FILE: name of the file
