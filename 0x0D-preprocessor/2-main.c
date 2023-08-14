@@ -8,8 +8,6 @@
  */
 int main()
 {
-	putchar(__FILE__);
-	__FILE__++;
-	putchar('\n');
+	printf("%s\n", __FILE__);
 	return (0);
 }
