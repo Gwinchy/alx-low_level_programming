@@ -3,6 +3,12 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+/**
+ * struct list_s - linked list
+ * @str: string in the linked list
+ * @len: length of the list
+ * @next: pointer to the next linked list
+ */
 typedef struct list_s
 {
 	char *str;
