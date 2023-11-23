@@ -1,34 +1,16 @@
-#include "main.h"
+#include <stdio.h>
 /**
- * binary_to_uint - converts a number to its binary state
- * @b: number to be converted
- * Return: A binary number or null
+ * binary_to_uint - Converts binary num to decimal
+ * @b: pointer to strings
+ * Return: unsigned int or 0
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int result;
-	unsigned int power;
-	char c;
-	int i;
+	unsigned int result = 0;
 
-	result = 0;
-	power = 0;
-	if (b == NULL)
+	while (*b != '\0')
 	{
-		return (0);
-	}
-	for (i = 0; b[i] != '\0'; i++)
-	{
-		c = b[i];
-		if (c != '0' && c != '1')
-		{
-			return (0);
-		}
-		if (c == '1')
-		{
-			result += (1 << power);
-			power++;
-		}
+		result = (result << 1) + (*b - '0');
 	}
 	return (result);
 }
