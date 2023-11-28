@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		{
 			handleError(98, "Can't read from file");
 		}
-	fileTo = open(to, O_WRONLY | O_CREAT | O_TRUNC);
+	fileTo = open(to, O_WRONLY | O_CREAT | O_TRUNC , 0644);
 	if (fileTo == -1)
 	{
 		close(fileFrom);
