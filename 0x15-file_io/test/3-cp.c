@@ -1,46 +1,47 @@
 #include "main.h"
-int main(int argc, char *argv[])
+/**
+ * main - starting point
+ * @argc: argument counter
+ * @argv: argument vector
+ * Return: !lways 0 Success
+ */
+int main(int argc, const char *argv[])
 {
-	int fileFrom, fileTo;
-	ssize_t bytesRead, bytesWritten;
-	char *buffer[BUFFER_SIZE];
-	const char *from = argv[1];
-	const char *to = argv[2];
+	int file_from, file_to;
+	char buffer[BUFFER_SIZE];
+	ssize_t bytesRead;
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		return (97);
 	}
-	fileFrom = open(from, O_RDONLY);
-		if (fileFrom == -1)
+	file_from = open(argv[1], O_RDONLY);
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file NAME_OF_THE_FILE\n");
+		return (98);
+	}
+	file_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT,
+	S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (file_to == -1)
+	{
+		close(file_from);
+		dprintf(STDERR_FILENO, "Error: Can't write to NAME_OF_THE_FILE\n");
+		return (99);
+	}
+	while ((bytesRead = read(file_from, buffer, BUFFER_SIZE)) > 0)
+	{
+		if (write(file_to, buffer, bytesRead) != bytesRead)
 		{
-			handleError(98, "Can't read from file");
-		}
-	fileTo = open(to, O_WRONLY | O_CREAT | O_TRUNC , 0644);
-	if (fileTo == -1)
-	{
-		close(fileFrom);
-		handleError(99, "Can't write to file");
-	}
-	while ((bytesRead = read(fileFrom, buffer, BUFFER_SIZE)) > 0)
-	{bytesWritten = write(fileTo, buffer, bytesRead);
-		if (bytesWritten != bytesRead)
-		{
-			close(fileFrom);
-			close(fileTo);
-			handleError(99, "Can't write to file");
+			close(file_from);
+			close(file_to);
 		}
 	}
-	if (bytesRead == -1)
+	if ((close(file_from) | close(file_to)) == -1)
 	{
-		close(fileFrom);
-		close(fileTo);
-		handleError(98, "Can't read from file");
-	}
-	if (close(fileFrom) == -1 || close(fileTo) == -1)
-	{
-		handleError(100, "Can't close file");
+		dprintf(STDERR_FILENO, "Error: Can't close fd FD_VALUE");
+		return (100);
 	}
 	return (0);
 }
